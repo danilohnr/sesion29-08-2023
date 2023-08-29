@@ -6,14 +6,17 @@ public class App {
         Scanner lector = new Scanner(System.in);
         double valorA, valorB, resultado,cociente = 0.0;
         System.out.println("Menu de opciones:");
-        System.out.println("1) Sumar");
-        System.out.println("2) Restar");
-        System.out.println("3) Multiplicar");
-        System.out.println("4) Dividir");
-        System.out.println("5) Salir");
-        byte opc = lector.nextByte();
+        System.out.println("a) Sumar");
+        System.out.println("b) Restar");
+        System.out.println("c) Multiplicar");
+        System.out.println("d) Dividir");
+        System.out.println("e) Potenciacion");
+        System.out.println("f) Radicacion");
+        System.out.println("g) Salir");
+        char opc = lector.next().charAt(0);
         switch (opc) {
-            case 1:
+            case 'A':
+            case 'a':
                 System.out.println("1) Sumar");
                 System.out.print("a: ");
                 valorA = lector.nextDouble();
@@ -22,7 +25,8 @@ public class App {
                 resultado = valorA + valorB;
                 System.out.println("La suma de " + valorA + " + " + valorB + " = " + resultado);
                 break;
-            case 2:
+            case 'B':
+            case 'b':
                 System.out.println("2) Restar");
                 System.out.print("a: ");
                 valorA = lector.nextDouble();
@@ -31,7 +35,8 @@ public class App {
                 resultado = valorA - valorB;
                 System.out.println("La diferencia entre " + valorA + " - " + valorB + " = " + resultado);
                 break;
-            case 3:
+            case 'C':
+            case 'c':
                 System.out.println("3) Multiplicar");
                 System.out.print("a: ");
                 valorA = lector.nextDouble();
@@ -40,7 +45,7 @@ public class App {
                 resultado = valorA * valorB;
                 System.out.println("El producto de " + valorA + " * " + valorB + " = " + resultado);
                 break;
-            case 4:
+            case 'd':
                 System.out.println("4) Dividir");
                 System.out.print("a: ");
                 valorA = lector.nextDouble();
@@ -53,7 +58,28 @@ public class App {
                     System.out.println("El cociente entre " + valorA + " / " + valorB + " = " + cociente);
                 }                
                 break;
-            case 5:
+            case 'e':
+                System.out.println("e) Potenciacion");
+                System.out.println("Base: ");
+                valorA = lector.nextDouble();
+                System.out.println("Exponente: ");
+                valorB = lector.nextDouble();
+                resultado = Math.pow(valorA,valorB);
+                System.out.println(valorA + " a la " + valorB + " = " + resultado);
+                break;
+            case 'f':
+                System.out.println("f) Radicacion");
+                System.out.println("Radicando: ");
+                valorA = lector.nextDouble();                             
+                resultado = Math.sqrt(valorA);
+                if (valorA < 0) {
+                    System.out.println("El radicando " + valorA +  " no puede ser menor que 0");
+                    System.out.println("El resultado es un numero complejo o imaginario");
+                } else {
+                    System.out.println(" La raiz cuadrada de " + valorA + " = " + resultado);
+                }                
+                break;
+            case 'g':
                 System.out.println("Saliendo de la App");
                 break;
             default:
